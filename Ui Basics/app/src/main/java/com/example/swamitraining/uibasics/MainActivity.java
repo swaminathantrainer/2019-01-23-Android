@@ -1,5 +1,6 @@
 package com.example.swamitraining.uibasics;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     EditText emailEdt, passwordEdt;
-    Button loginButton;
+    Button loginButton, signupButton;
     TextView emailErrorTextView, passwordErrorTextView;
 
     @Override
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         emailEdt = findViewById(R.id.emailInput);
         passwordEdt = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
+        signupButton = findViewById(R.id.signupButton);
 
         emailErrorTextView = findViewById(R.id.emailErrorTextView);
         emailErrorTextView.setText("The email is not valid");
@@ -43,6 +45,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToSecondActivity();
+            }
+        });
+    }
+
+    private void moveToSecondActivity() {
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivity(intent);
     }
 
     @Override
