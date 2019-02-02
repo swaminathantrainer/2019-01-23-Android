@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_flow"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.fragments.LoginFragment"
+        android:label="login_layout"
+        tools:layout="@layout/login_layout" >
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.fragments.SignupFragment"
+        android:label="signup_layout"
+        tools:layout="@layout/signup_layout" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.fragments.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+</navigation>

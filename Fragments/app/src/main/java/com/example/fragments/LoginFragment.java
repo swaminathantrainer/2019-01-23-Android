@@ -10,6 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 public class LoginFragment extends Fragment {
 
@@ -23,19 +27,40 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        final EditText editText = view.findViewById(R.id.emailInput);
+
         Button signupButton = view.findViewById(R.id.signupButton);
-        signupButton.setOnClickListener(new View.OnClickListener() {
+        signupButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_signupFragment));
+
+        Button onboardingButton = view.findViewById(R.id.onboarding_button);
+
+        onboardingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SignupFragment signupFragment = new SignupFragment();
+                String email = editText.getText().toString();
 
-                // add login page
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.auth_host_container, signupFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                final Bundle bundle = new Bundle();
+                bundle.putString("email", email);
+
+                NavController controller = Navigation.findNavController(v);
+                controller.navigate(R.id.action_loginFragment_to_onboardingFragment, bundle);
             }
         });
+
+//        OnboardingFragment onboardingFragment = OnboardingFragment.getObject("swaaminathanm@gmail.com");
+
+//        signupButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SignupFragment signupFragment = new SignupFragment();
+//
+////                 add login page
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.add(R.id.auth_host_container, signupFragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
+//            }
+//        });
     }
 }
