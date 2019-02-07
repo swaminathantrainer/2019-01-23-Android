@@ -6,6 +6,63 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="buttonBackground">#9b59b6</item>
+        <item name="buttonTextColor">#2c3e50</item>
+        <item name="themeEditTextBackground">#f1c40f</item>
+        <item name="themeEditTextTextColor">#000</item>
+    </style>
+
+    <!--Light Version Theme-->
+    <style name="AppTheme.Light">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="buttonBackground">#2c3e50</item>
+        <item name="buttonTextColor">#ecf0f1</item>
+        <item name="themeEditTextBackground">#2ecc71</item>
+        <item name="themeEditTextTextColor">#000</item>
+    </style>
+
+    <!--Dark Version Theme-->
+    <style name="AppTheme.Dark">
+        <item name="android:windowBackground">#34495e</item>
+        <item name="buttonBackground">#ecf0f1</item>
+        <item name="buttonTextColor">#2c3e50</item>
+        <item name="themeEditTextBackground">#2c3e50</item>
+        <item name="themeEditTextTextColor">#FFF</item>
+    </style>
+
+    <!--Theme Button Style-->
+    <style name="ThemeButtonStyle" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">?attr/buttonBackground</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textAppearance">@style/ThemeButtonTextAppearance</item>
+    </style>
+
+    <!--Theme EditText Style-->
+    <style name="EditTextStyle" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:textColor">?attr/themeEditTextTextColor</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">?attr/themeEditTextBackground</item>
+    </style>
+
+    <!--<style name="EditTextDarkStyle" parent="@style/Widget.AppCompat.EditText">-->
+    <!--<item name="android:textColor">#fff</item>-->
+    <!--<item name="android:padding">8dp</item>-->
+    <!--<item name="android:background">#34495e</item>-->
+    <!--</style>-->
+
+    <style name="ThemeButtonTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">?attr/buttonTextColor</item>
+    </style>
+
+    <style name="InformationTextStyle">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!--Error Text Style-->
+    <style name="InformationTextStyle.Error">
+        <item name="android:textColor">@color/test_color</item>
     </style>
 
 </resources>

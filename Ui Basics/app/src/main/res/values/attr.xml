@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="buttonBackground" format="color|reference" />
+    <attr name="buttonTextColor" format="color|reference" />
+    <attr name="themeEditTextBackground" format="color|reference" />
+    <attr name="themeEditTextTextColor" format="color|reference" />
+</resources>
