@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
     EditText emailEdt, passwordEdt;
     Button loginButton, signupButton;
     TextView emailErrorTextView, passwordErrorTextView;
+
+    TextView randomText;
+
+    Random random = new Random();
+
+    int randomNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +32,18 @@ public class MainActivity extends AppCompatActivity {
         emailEdt = findViewById(R.id.emailInput);
         passwordEdt = findViewById(R.id.passwordInput);
         loginButton = findViewById(R.id.loginButton);
-        signupButton = findViewById(R.id.signupButton);
+
+        randomText = findViewById(R.id.random_text);
 
         emailErrorTextView = findViewById(R.id.emailErrorTextView);
         emailErrorTextView.setText("The email is not valid");
         emailErrorTextView.setVisibility(View.INVISIBLE);
+
+        if (savedInstanceState == null) {
+            randomNumber = random.nextInt(100);
+        }
+
+        randomText.setText("" + randomNumber);
 
         // Revealing Constructor
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -46,12 +60,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                moveToSecondActivity();
-            }
-        });
+//        signupButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                moveToSecondActivity();
+//            }
+//        });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("random_val", randomNumber);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        randomNumber = savedInstanceState.getInt("random_val");
+        randomText.setText("" + randomNumber);
     }
 
     private void moveToSecondActivity() {

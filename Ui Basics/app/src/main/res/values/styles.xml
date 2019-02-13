@@ -15,15 +15,15 @@
     <!--Light Version Theme-->
     <style name="AppTheme.Light">
         <item name="android:windowBackground">@color/colorPrimary</item>
-        <item name="buttonBackground">#2c3e50</item>
-        <item name="buttonTextColor">#ecf0f1</item>
-        <item name="themeEditTextBackground">#2ecc71</item>
+        <item name="buttonBackground">@drawable/light_button_selector</item>
+        <item name="buttonTextColor">#6B6B6B</item>
+        <item name="themeEditTextBackground">@drawable/edittext_shape_light</item>
         <item name="themeEditTextTextColor">#000</item>
     </style>
 
     <!--Dark Version Theme-->
     <style name="AppTheme.Dark">
-        <item name="android:windowBackground">#34495e</item>
+        <item name="android:windowBackground">@color/colorSecondary</item>
         <item name="buttonBackground">#ecf0f1</item>
         <item name="buttonTextColor">#2c3e50</item>
         <item name="themeEditTextBackground">#2c3e50</item>
@@ -33,7 +33,6 @@
     <!--Theme Button Style-->
     <style name="ThemeButtonStyle" parent="@style/Widget.AppCompat.Button">
         <item name="android:background">?attr/buttonBackground</item>
-        <item name="android:gravity">right|center_vertical</item>
         <item name="android:padding">8dp</item>
         <item name="android:textAppearance">@style/ThemeButtonTextAppearance</item>
     </style>

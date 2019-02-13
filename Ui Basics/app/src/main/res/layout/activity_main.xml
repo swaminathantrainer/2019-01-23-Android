@@ -7,6 +7,13 @@
     android:orientation="vertical"
     android:padding="8dp">
 
+    <TextView
+        android:id="@+id/random_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000" />
+
+
     <EditText
         android:id="@+id/emailInput"
         style="@style/EditTextStyle"
@@ -17,12 +24,11 @@
         android:textSize="30sp" />
 
     <TextView
-        style="@style/InformationTextStyle.Error"
         android:id="@+id/emailErrorTextView"
+        style="@style/InformationTextStyle.Error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FF0000"
-        tools:text="Text Error" />
+        android:textColor="#FF0000" />
 
     <EditText
         android:id="@+id/passwordInput"
@@ -35,9 +41,9 @@
 
     <TextView
         android:id="@+id/passwordErrorTextView"
+        style="@style/InformationTextStyle.Error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FF0000"
         tools:text="Text Error" />
 
     <Button
@@ -48,14 +54,14 @@
         android:layout_gravity="center_horizontal"
         android:text="LOGIN" />
 
-    <Button
-        android:id="@+id/signupButton"
-        style="@style/ThemeButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:text="SIGN UP" />
+    <!--<Button-->
+    <!--android:id="@+id/signupButton"-->
+    <!--style="@style/ThemeButtonStyle"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:text="SIGN UP" />-->
 
     <TextView
         android:id="@+id/signupTextView"
@@ -65,7 +71,7 @@
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
         android:padding="8dp"
-        android:text="Click here to login" />
+        android:text="Click here to signup" />
 
 
 </LinearLayout>
