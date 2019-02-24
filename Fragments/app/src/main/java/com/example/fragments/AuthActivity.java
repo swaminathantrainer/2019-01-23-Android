@@ -15,7 +15,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 import static androidx.navigation.ui.NavigationUI.setupWithNavController;
 
-public class MainActivity extends AppCompatActivity {
+public class AuthActivity extends AppCompatActivity {
     NavController navController;
     TextView randomTextView;
     Random random;

@@ -5,10 +5,35 @@
     android:background="#FFF"
     android:orientation="vertical">
 
-    <TextView
-        android:text="Signup Page"
+    <EditText
+        android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FF0000" />
+        android:hint="enter email"
+        android:inputType="textEmailAddress"
+        android:textSize="30sp" />
 
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter password"
+        android:inputType="textPassword"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/reEnterpasswordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="re-enter password"
+        android:inputType="textPassword"
+        android:textSize="30sp" />
+
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="SIGN UP" />
 </LinearLayout>
