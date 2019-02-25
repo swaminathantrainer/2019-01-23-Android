@@ -9,7 +9,56 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+
+import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
+
+/*
+JSON Object
+s = {
+    name: "Swami",
+    age: "10",
+    rollNumber: "12345",
+    address: {
+        city: "Chennai",
+        houseNo: "1"
+    }
+}
+
+s.address.city;
+// Chennai;
+
+s.age
+// 10;
+
+JSON Array
+arr = [
+    {
+        name: "Swami",
+        age: "10",
+        rollNumber: "12345",
+        address: {
+            city: "Chennai",
+            houseNo: "1"
+        }
+    },
+    {
+        name: "Rahul",
+        age: "11",
+        rollNumber: "112345",
+        address: null
+    }
+]
+
+arr[0].name;
+// Swami;
+
+ */
+
 public class HomeActivity extends AppCompatActivity {
+    NavController navController;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,6 +76,11 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph())
+                .build();
+        setupActionBarWithNavController(this, navController);
     }
 
     private void signOut() {
