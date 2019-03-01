@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_navigation"
-    app:startDestination="@id/createProductFragment">
+    app:startDestination="@id/productsListingFragment">
 
     <fragment
         android:id="@+id/createProductFragment"
         android:name="com.example.fragments.CreateProductFragment"
         android:label="create_product_fragment"
         tools:layout="@layout/create_product_fragment" />
+    <fragment
+        android:id="@+id/productsListingFragment"
+        android:name="com.example.fragments.ProductsListingFragment"
+        android:label="fragment_products_listing"
+        tools:layout="@layout/fragment_products_listing" >
+        <action
+            android:id="@+id/action_productsListingFragment_to_createProductFragment"
+            app:destination="@id/createProductFragment" />
+    </fragment>
 </navigation>

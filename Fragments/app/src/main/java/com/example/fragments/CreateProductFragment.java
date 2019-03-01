@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.fragments.pojo.Product;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,8 +24,6 @@ public class CreateProductFragment extends Fragment {
     private DatabaseReference productsRef;
     private DatabaseReference productReference;
 
-    private String PRODUCTS = "PRODUCTS";
-
     private EditText nameEdt, descEdt, stockCountEdt;
 
     public CreateProductFragment() {
@@ -36,7 +35,7 @@ public class CreateProductFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        productsRef = mDatabase.child(PRODUCTS);
+        productsRef = mDatabase.child(Constants.PRODUCTS_TABLE);
     }
 
     @Override
@@ -59,19 +58,19 @@ public class CreateProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 productReference = productsRef.push();
+                String productKey = productReference.getKey();
 
                 String name = nameEdt.getText().toString();
                 String desc = descEdt.getText().toString();
                 int stock = Integer.parseInt(stockCountEdt.getText().toString());
 
-                insertProduct(name, desc, stock);
+                insertProduct(productKey, name, desc, stock);
             }
         });
     }
 
-    private void insertProduct(String name, String desc, int stock) {
-        productReference.child("name").setValue(name);
-        productReference.child("description").setValue(desc);
-        productReference.child("stockCount").setValue(stock);
+    private void insertProduct(String id, String name, String desc, int stock) {
+        Product product = new Product(id, name, desc, stock);
+        productReference.setValue(product);
     }
 }
