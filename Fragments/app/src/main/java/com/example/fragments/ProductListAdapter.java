@@ -10,11 +10,20 @@ import com.example.fragments.pojo.Product;
 
 import java.util.ArrayList;
 
-public class ProductListadapter extends RecyclerView.Adapter<ProductViewHolder> {
+public class ProductListAdapter extends RecyclerView.Adapter<ProductViewHolder> {
     private ArrayList<Product> productArrayList;
 
-    public ProductListadapter(ArrayList<Product> productArrayList) {
+    interface ProductListAdapterInterface {
+        void addProduct(Product product);
+
+        void removeProduct(Product product);
+    }
+
+    private ProductListAdapterInterface listAdapterInterface;
+
+    public ProductListAdapter(ArrayList<Product> productArrayList, ProductListAdapterInterface listAdapterInterface) {
         this.productArrayList = productArrayList;
+        this.listAdapterInterface = listAdapterInterface;
     }
 
     @NonNull
@@ -28,8 +37,22 @@ public class ProductListadapter extends RecyclerView.Adapter<ProductViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i) {
-        Product product = productArrayList.get(i);
+        final Product product = productArrayList.get(i);
         productViewHolder.setData(product.getName(), product.getStockCount());
+
+        productViewHolder.getAddProductBtn().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listAdapterInterface.addProduct(product);
+            }
+        });
+
+        productViewHolder.getRemoveProductBtn().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listAdapterInterface.removeProduct(product);
+            }
+        });
     }
 
     @Override

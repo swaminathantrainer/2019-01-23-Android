@@ -12,6 +12,26 @@
         android:layout_height="wrap_content"
         android:text="CREATE A PRODUCT" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/productSearchEdt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="type product name and click search" />
+
+        <Button
+            android:id="@+id/searchProductButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEARCH" />
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/productsRecyclerView"
         android:layout_width="match_parent"

@@ -23,4 +23,12 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
         titleTxt.setText(title);
         stockCountTxt.setText("" + stockCount);
     }
+
+    public Button getAddProductBtn() {
+        return addProductBtn;
+    }
+
+    public Button getRemoveProductBtn() {
+        return removeProductBtn;
+    }
 }
